@@ -19,11 +19,22 @@ public class RobotBase
             
             //Direction.NORTH, EAST, SOUTH, WEST
             //Definicion de la ubicacion del robot, Ciudad, posicion, Direccion, Numero things en el bolso.
-            estudiante = new Robot(objetos,1, 0, Direction.EAST,0);
+            estudiante = new Robot(objetos,0, 1, Direction.SOUTH,0);
             
-            cuadroThings();
-            movKarel3();
-	}
+            int contador=0;
+            do{
+                estudiante.move();
+                while(estudiante.canPickThing()== true){
+                if(estudiante.canPickThing()== true){
+                estudiante.pickThing();
+                
+                }
+                }
+            
+            }
+            while(estudiante.canPickThing()== true);
+         
+        }
         
         public static void mediaVuelta(){
             for (int i = 0; i < 2; i++){ 
@@ -44,14 +55,6 @@ public class RobotBase
             for (int i = 1; i < 7; i++){
                 for(int j=1;j<6;j++){
                     Thing t = new Thing(objetos,i,j);
-                }
-            }
-        }
-        public static void movKarel3(){
-            for(int i=5;i>0;i--){
-                for(int j=0;j<2;j++){
-                avanzar(i);
-                giroDerecha();
                 }
             }
         }
